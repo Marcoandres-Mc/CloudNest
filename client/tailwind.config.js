@@ -1,7 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+module.exports = withMT({
     darkMode: ["class"],
-    content: [],
+    content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
   	extend: {
   		borderRadius: {
@@ -14,4 +19,5 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 }
+);
 
