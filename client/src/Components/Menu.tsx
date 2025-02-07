@@ -26,10 +26,14 @@ import {
   RocketLaunchIcon,
   Bars2Icon,
 } from "@heroicons/react/24/solid";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
  
    type NavItem = {
     label: string;
-    icon: React.ElementType;
+    icon?: React.ElementType;
+    url?: string;
     };
 
 
@@ -37,36 +41,52 @@ import {
   // nav list component
   const navListItems:NavItem[] = [
     {
-      label: "Account",
-      icon: UserCircleIcon,
-    },
-    {
-      label: "Blocks",
+      label:"Documentos",
       icon: CubeTransparentIcon,
+      url: "/documentos"
     },
     {
-      label: "Docs",
-      icon: CodeBracketSquareIcon,
+      label:"Favoritos",
+      icon: UserCircleIcon,
+      url: "/favoritos"
     },
-  ];
+    {
+      label:"Fotos",
+      icon: CodeBracketSquareIcon,
+      url: "/fotos"
+    },
+    {
+      label:"Papelera",
+      icon: Square3Stack3DIcon,
+      url: "/papelera"
+    }
+  ]
+
+  
    
   function NavList() {
+    const [elementos, setElementos] = useState<NavItem[]>(navListItems);
     return (
       <ul className="mt-2 mb-4 flex flex-col gap-2 ">
-        {navListItems.map(({ label, icon } : NavItem, ) => (
-          <Typography
-            key={label}
-            as="a"
-            href="#"
-            variant="small"
-            color="gray"
-            className="font-medium text-blue-gray-500"
-          >
-            <MenuItem className="flex items-center gap-2 lg:rounded-full">
-              {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
-              <span className="text-gray-900"> {label}</span>
-            </MenuItem>
-          </Typography>
+        {elementos.map(({ label, icon } : NavItem, ) => (
+          <Link to={label}>
+            <Typography
+              key={label}
+              as="a"
+              href="#"
+              variant="small"
+              color="gray"
+              className="font-medium text-blue-gray-500"
+            >
+              <MenuItem className="flex items-center gap-2 lg:rounded-full">
+              <div>
+
+              </div>
+                {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
+                <span className="text-gray-900"> {label}</span>
+              </MenuItem>
+            </Typography>
+          </Link>
         ))}
       </ul>
     );
