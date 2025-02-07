@@ -68,6 +68,7 @@ import { Link } from "react-router-dom";
     const [elementos, setElementos] = useState<NavItem[]>(navListItems);
     return (
       <ul className="mt-2 mb-4 flex flex-col gap-2 ">
+        {/* <input type="file" className="mb-4 " /> */}
         {elementos.map(({ label, icon } : NavItem, ) => (
           <Link to={label}>
             <Typography
