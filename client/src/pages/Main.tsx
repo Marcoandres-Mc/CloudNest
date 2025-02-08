@@ -11,21 +11,21 @@ import Papelera from './Papelera'
 const Main = () => {
   return (
     <>
-        <div>
+        <div className='flex flex-row '>
             <Menu/>
-            </div>
             <div className='w-full'>
-            <div className="p-6 bg-white rounded-xl shadow-md items-center justify-center w-full h-full m-5">
+            <div className="p-6 bg-white rounded-xl shadow-md items-center justify-center w-[900px] h-full m-5">
                 <div className="text-center">
-                    <Routes>
+                  <Routes>
                     <Route path='/documentos' element={<Documentos/>} />
                     <Route path='/fotos' element={<Fotos/>} />
                     <Route path='/favoritos' element={<Favoritos/>} />
                     <Route path='/papelera' element={<Papelera/>} />
-                    </Routes>
+                  </Routes>
                 </div> 
             </div>
-        </div> 
+            </div>
+        </div>
     </>
     
   )

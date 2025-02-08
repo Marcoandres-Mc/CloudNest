@@ -54,9 +54,9 @@ export default function RecipeReviewCard() {
       <CardContent >
         <div className='flex justify-between'>
           <h2>hola</h2>
-          <CardHeader className='p-0' action={
-              <IconButton aria-label="settings" className='p-0'>
-                <MoreVertIcon className='p-0' />
+          <CardHeader action={
+              <IconButton aria-label="settings">
+                <MoreVertIcon />
               </IconButton>
             }/>
         </div>

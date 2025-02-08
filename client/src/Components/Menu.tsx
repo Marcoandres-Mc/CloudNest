@@ -33,7 +33,7 @@ import { Link } from "react-router-dom";
    type NavItem = {
     label: string;
     icon?: React.ElementType;
-    url?: string;
+    url: string;
     };
 
 
@@ -43,22 +43,22 @@ import { Link } from "react-router-dom";
     {
       label:"Documentos",
       icon: CubeTransparentIcon,
-      url: "/documentos"
+      url: "/home/documentos"
     },
     {
       label:"Favoritos",
       icon: UserCircleIcon,
-      url: "/favoritos"
+      url: "/home/favoritos"
     },
     {
       label:"Fotos",
       icon: CodeBracketSquareIcon,
-      url: "/fotos"
+      url: "/home/fotos"
     },
     {
       label:"Papelera",
       icon: Square3Stack3DIcon,
-      url: "/papelera"
+      url: "/home/papelera"
     }
   ]
 
@@ -69,8 +69,8 @@ import { Link } from "react-router-dom";
     return (
       <ul className="mt-2 mb-4 flex flex-col gap-2 ">
         {/* <input type="file" className="mb-4 " /> */}
-        {elementos.map(({ label, icon } : NavItem, ) => (
-          <Link to={label}>
+        {elementos.map(({ label, icon, url } : NavItem, ) => (
+          <Link to={url}>
             <Typography
               key={label}
               as="a"
@@ -103,7 +103,7 @@ import { Link } from "react-router-dom";
     }, []);
    
     return (
-      <Navbar className="flex flex-col p-2 m-42 w-64 m-5">
+      <Navbar className="flex flex-col p-2 m-42 w-48 m-5">
         <div className="flex flex-col relative mx-auto flex  items-center justify-between text-blue-gray-900">
           <div className="flex items-center gap-4">
             <NavList />
