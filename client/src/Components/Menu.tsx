@@ -68,7 +68,16 @@ import { Link } from "react-router-dom";
     const [elementos, setElementos] = useState<NavItem[]>(navListItems);
     return (
       <ul className="mt-2 mb-4 flex flex-col gap-2 ">
-        {/* <input type="file" className="mb-4 " /> */}
+        <Button variant="outlined" className="mb-4">
+        <label htmlFor="file-upload" className="cursor-pointer">
+          Subir Archivo
+          <input
+            id="file-upload"
+            type="file"
+            className="hidden"
+          />
+        </label>
+      </Button>
         {elementos.map(({ label, icon, url } : NavItem, ) => (
           <Link to={url}>
             <Typography
